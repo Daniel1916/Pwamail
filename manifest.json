@@ -1,0 +1,9 @@
+{
+  "name": "PWA Email Sender",
+  "short_name": "EmailPWA",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0d6efd",
+  "icons": []
+}

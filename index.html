@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8" />
+<title>PWA Enviar Email</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="manifest" href="manifest.json" />
+<meta name="theme-color" content="#0d6efd">
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script>
+function enviarEmail() {
+    const nome = document.getElementById("nome").value;
+    const mensagem = document.getElementById("mensagem").value;
+
+    Email.send({
+        Host : "smtp.gmail.com",
+        Username : "shoes19616@gmail.com",
+        Password : "bbyd nqqp evmj rbjo",
+        To : "shoes19616@gmail.com",
+        From : "shoes19616@gmail.com",
+        Subject : "Nova mensagem do PWA",
+        Body : `Nome: ${nome}<br>Mensagem:<br>${mensagem}`
+    }).then(msg => {
+        alert("📨 Email enviado com sucesso!");
+    }).catch(err => {
+        alert("❌ Erro ao enviar: " + err);
+    });
+}
+</script>
+<style>
+body { font-family: Arial; padding: 20px; }
+input, textarea { width: 100%; margin-bottom: 10px; padding: 10px; }
+button{ width: 100%; padding: 12px; background: #0d6efd; color: white; border: none; border-radius: 6px; font-size: 18px; }
+</style>
+</head>
+<body>
+<h2>Enviar Email via PWA</h2>
+<label>Seu nome:</label>
+<input id="nome" type="text">
+<label>Mensagem:</label>
+<textarea id="mensagem" rows="5"></textarea>
+<button onclick="enviarEmail()">Enviar</button>
+<script>
+if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js");
+}
+</script>
+</body>
+</html>
